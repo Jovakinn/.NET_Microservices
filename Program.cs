@@ -1,20 +1,17 @@
-WebApplication.CreateBuilder(args).Services.AddControllers();
-WebApplication.CreateBuilder(args).Services.AddEndpointsApiExplorer();
-WebApplication.CreateBuilder(args).Services.AddSwaggerGen();
+namespace PlatformService;
 
-var app = WebApplication.CreateBuilder(args).Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+public static class Program
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    public static void Main(string[] args)
+    {
+        CreateHostBuilder(args).Build().Run();
+    }
+
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder.UseStartup<Startup>();
+            });
 }
 
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();

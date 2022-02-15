@@ -16,17 +16,17 @@ public class PlatformRepo : IPlatformRepo
         return _context.SaveChanges() >= 0;
     }
 
-    public IEnumerable<Platform> getAllPlatforms()
+    public IEnumerable<Platform?> getAllPlatforms()
     {
         return _context.Platforms.ToList();
     }
 
-    public Platform GetPlatformById(int id)
+    public Platform? GetPlatformById(int id)
     {
         return _context.Platforms.FirstOrDefault(p => p.Id == id);
     }
 
-    public void CreatePlatform(Platform plat)
+    public void CreatePlatform(Platform? plat)
     {
         if (plat == null)
         {
