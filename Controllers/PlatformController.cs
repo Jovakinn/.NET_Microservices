@@ -46,7 +46,7 @@ public class PlatformController : ControllerBase
     {
         var platformModel = _mapper.Map<Platform>(platformCreateDto);
         _repo.CreatePlatform(platformModel);
-        _repo.saveChanges();
+        _repo.SaveChanges();
 
         var platformReadDto = _mapper.Map<PlatformReadDto>(platformModel);
 

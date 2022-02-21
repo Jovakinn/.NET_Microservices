@@ -11,7 +11,7 @@ public class PlatformRepo : IPlatformRepo
         _context = context;
     }
 
-    public bool saveChanges()
+    public bool SaveChanges()
     {
         return _context.SaveChanges() >= 0;
     }
